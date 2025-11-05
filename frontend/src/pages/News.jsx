@@ -55,7 +55,7 @@ const News = () => {
                   >
                     <div className="aspect-[16/9] overflow-hidden bg-gray-100">
                       <img
-                        src={article.image_url || 'https://images.unsplash.com/photo-1715982401912-b3a2ac79c4f2?crop=entropy&cs=srgb&fm=jpg&q=85'}
+                        src={article.image_url || 'https://images.unsplash.com/photo-1559690869-1005b5a5ee41?crop=entropy&cs=srgb&fm=jpg&q=85'}
                         alt={article.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
