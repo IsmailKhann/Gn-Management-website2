@@ -38,7 +38,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1715982401960-e2875d8841aa?crop=entropy&cs=srgb&fm=jpg&q=85)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+          <div className="absolute inset-0" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1565577191414-da98f3c4abac?crop=entropy&cs=srgb&fm=jpg&q=85)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
         </div>
         <div className="relative max-w-6xl mx-auto px-6">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 animate-in">About GN Management</h1>
