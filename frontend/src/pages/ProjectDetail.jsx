@@ -63,7 +63,7 @@ const ProjectDetail = () => {
       {/* Hero Image */}
       <section className="relative h-[60vh] overflow-hidden">
         <img
-          src={project.image_url || 'https://images.unsplash.com/photo-1740904259901-2063800012ab?crop=entropy&cs=srgb&fm=jpg&q=85'}
+          src={project.image_url || 'https://images.unsplash.com/photo-1692651762918-5c96f87c5448?crop=entropy&cs=srgb&fm=jpg&q=85'}
           alt={project.name}
           className="w-full h-full object-cover"
         />
