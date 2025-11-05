@@ -311,28 +311,77 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-black text-white">
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Core Values - Interactive Grid */}
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        </div>
+        
+        <div className="relative max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Why GN Management Stands Apart</h2>
+            <div className="inline-block mb-4 px-4 py-2 bg-[#20B2AA]/20 backdrop-blur-md border border-[#20B2AA]/30 rounded-full">
+              <span className="text-[#20B2AA] font-semibold text-sm">Our Values</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">What Sets Us Apart</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Core principles that guide every decision and drive our success.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Visionary Planning', desc: 'We anticipate what neighborhoods can become and work proactively to bring transformation.' },
-              { title: 'Integrated Delivery', desc: 'Seamless coordination from site selection through leasing and operations.' },
-              { title: 'Relationship-Driven', desc: 'Culture of trust, respect, and family-first values extends to every stakeholder.' },
-              { title: 'Recognized Excellence', desc: "Ranked #31 on Inc.'s 2023 Northeast lists as a fast-growing developer." },
-            ].map((value, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <h3 className="text-xl font-bold mb-3 text-[#20B2AA]">{value.title}</h3>
-                <p className="text-gray-300 text-sm">{value.desc}</p>
-              </div>
-            ))}
+              { 
+                title: 'Visionary Planning', 
+                desc: 'We anticipate what neighborhoods can become and work proactively to bring transformation.',
+                icon: TrendingUp,
+                color: 'from-emerald-500 to-teal-600'
+              },
+              { 
+                title: 'Integrated Delivery', 
+                desc: 'Seamless coordination from site selection through leasing and operations.',
+                icon: Award,
+                color: 'from-blue-500 to-cyan-600'
+              },
+              { 
+                title: 'Relationship-Driven', 
+                desc: 'Culture of trust, respect, and family-first values extends to every stakeholder.',
+                icon: Heart,
+                color: 'from-pink-500 to-rose-600'
+              },
+              { 
+                title: 'Recognized Excellence', 
+                desc: "Ranked #31 on Inc.'s 2023 Northeast lists as a fast-growing developer.",
+                icon: Users,
+                color: 'from-orange-500 to-amber-600'
+              },
+            ].map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl scale-in overflow-hidden"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {/* Gradient Accent */}
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${value.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
+                  
+                  {/* Icon */}
+                  <div className={`mb-6 inline-flex p-4 rounded-2xl bg-gradient-to-br ${value.color} transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                    <Icon className="h-8 w-8 text-white" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#20B2AA] transition-colors duration-200">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {value.desc}
+                  </p>
+
+                  {/* Hover Effect Background */}
+                  <div className="absolute inset-0 bg-[#20B2AA]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
