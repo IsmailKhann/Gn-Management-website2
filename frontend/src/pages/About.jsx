@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Linkedin } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Linkedin, Award, Users, TrendingUp, Heart, ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -7,9 +8,13 @@ const API = `${BACKEND_URL}/api`;
 
 const About = () => {
   const [team, setTeam] = useState([]);
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [activeYear, setActiveYear] = useState(null);
+  const [counters, setCounters] = useState({ projects: 0, team: 0, units: 0, years: 0 });
 
   useEffect(() => {
     fetchTeam();
+    animateCounters();
   }, []);
 
   const fetchTeam = async () => {
@@ -19,6 +24,33 @@ const About = () => {
     } catch (error) {
       console.error('Error fetching team:', error);
     }
+  };
+
+  const animateCounters = () => {
+    const targets = { projects: 50, team: 30, units: 267, years: 10 };
+    const duration = 2000;
+    const steps = 60;
+    const increment = duration / steps;
+
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      setCounters({
+        projects: Math.floor(targets.projects * progress),
+        team: Math.floor(targets.team * progress),
+        units: Math.floor(targets.units * progress),
+        years: Math.floor(targets.years * progress),
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCounters(targets);
+      }
+    }, increment);
+
+    return () => clearInterval(timer);
   };
 
   const milestones = [
