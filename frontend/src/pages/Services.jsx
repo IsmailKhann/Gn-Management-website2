@@ -230,9 +230,76 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Investment Snapshot */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 to-black text-white">
+      {/* Why Choose GN Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">Why Choose GN Management</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Proven expertise, integrated solutions, and unwavering commitment to excellence.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: Award,
+                title: 'Proven Track Record',
+                description: 'Over a decade of successful projects and satisfied partners across Jersey City.',
+                stat: '50+ Projects',
+              },
+              {
+                icon: Users,
+                title: 'Full-Service Approach',
+                description: 'From acquisition to management, we handle every aspect in-house for seamless execution.',
+                stat: '30+ Team Members',
+              },
+              {
+                icon: Target,
+                title: 'Market Intelligence',
+                description: 'Deep local knowledge and data-driven insights give our partners a competitive edge.',
+                stat: '10+ Years Local',
+              },
+              {
+                icon: Shield,
+                title: 'Transparent Partnership',
+                description: 'Regular updates, clear communication, and complete visibility throughout the process.',
+                stat: '96% Occupancy',
+              },
+            ].map((item, index) => {
+              const ItemIcon = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-[#20B2AA] to-[#189a93] transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                      <ItemIcon className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-3">
+                        <h3 className="text-xl font-bold text-black">{item.title}</h3>
+                        <span className="text-sm font-bold text-[#20B2AA] bg-[#20B2AA]/10 px-3 py-1 rounded-full">
+                          {item.stat}
+                        </span>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Snapshot - Enhanced */}
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1542811029-dd22535dfad1?crop=entropy&cs=srgb&fm=jpg&q=85)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">Investment Snapshot: Jersey City</h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -241,41 +308,64 @@ const Services = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {[
-              { label: 'Population Growth', value: '+17%' },
-              { label: 'Transit to Manhattan', value: '20 min' },
-              { label: 'Rental Occupancy', value: '~96%' },
-              { label: 'GN Asset Portfolio', value: '1M+ sq ft' },
-              { label: 'Development Pipeline', value: 'Highest in NJ' },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="text-3xl font-bold text-[#20B2AA] mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-300">{stat.label}</div>
-              </div>
-            ))}
+              { label: 'Population Growth', value: '+17%', icon: TrendingUp },
+              { label: 'Transit to Manhattan', value: '20 min', icon: Target },
+              { label: 'Rental Occupancy', value: '~96%', icon: Home },
+              { label: 'GN Asset Portfolio', value: '1M+ sq ft', icon: Building },
+              { label: 'Development Pipeline', value: 'Highest in NJ', icon: Award },
+            ].map((stat, index) => {
+              const StatIcon = stat.icon;
+              return (
+                <div
+                  key={index}
+                  className="group bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 text-center hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 scale-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <StatIcon className="h-8 w-8 text-[#20B2AA] mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="text-3xl font-bold text-[#20B2AA] mb-2">{stat.value}</div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">Ready to Partner with Us?</h2>
-          <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-            Whether you're an investor, prospective tenant, or seeking construction services, let's discuss how we can work together.
-          </p>
-          <Link to="/contact">
-            <Button
-              data-testid="contact-services-btn"
-              size="lg"
-              className="bg-[#20B2AA] hover:bg-[#189a93] text-white px-10 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200"
-            >
-              Get in Touch
-            </Button>
-          </Link>
+      {/* CTA Section - Enhanced */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="bg-gradient-to-br from-[#20B2AA] to-[#189a93] rounded-[3rem] p-12 lg:p-16 text-white text-center shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1740904259901-2063800012ab?crop=entropy&cs=srgb&fm=jpg&q=85)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+            </div>
+            <div className="relative">
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6">Ready to Partner with Us?</h2>
+              <p className="text-lg mb-10 max-w-2xl mx-auto opacity-90">
+                Whether you're an investor, prospective tenant, or seeking construction services, let's discuss how we can work together.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact">
+                  <Button
+                    data-testid="contact-services-btn"
+                    size="lg"
+                    className="bg-white hover:bg-gray-100 text-[#20B2AA] px-10 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200 shadow-lg"
+                  >
+                    Get in Touch
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to="/portfolio">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-white text-white hover:bg-white/10 px-10 py-6 text-lg rounded-full transition-all duration-200"
+                  >
+                    View Our Work
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
