@@ -162,35 +162,78 @@ const About = () => {
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="py-24 bg-gray-50">
+      {/* Leadership Team - Enhanced Interactive */}
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">Leadership Team</h2>
+            <div className="inline-block mb-4 px-4 py-2 bg-[#20B2AA]/10 rounded-full">
+              <span className="text-[#20B2AA] font-semibold text-sm">Our Leaders</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">Meet the Visionaries</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Meet the visionary leaders driving GN Management's success.
+              The experienced team driving innovation and excellence in Jersey City real estate.
             </p>
           </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <div
                 key={member.id}
                 data-testid={`team-member-${index}`}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 scale-in"
+                onClick={() => setSelectedMember(selectedMember === member.id ? null : member.id)}
+                className={`group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer transition-all duration-500 scale-in ${
+                  selectedMember === member.id ? 'ring-2 ring-[#20B2AA] scale-105' : ''
+                }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="aspect-square overflow-hidden bg-gray-100">
+                <div className="relative aspect-square overflow-hidden bg-gray-100">
                   <img
                     src={member.image_url || 'https://images.unsplash.com/photo-1629507208649-70919ca33793?crop=entropy&cs=srgb&fm=jpg&q=85'}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <Button 
+                      size="sm" 
+                      className="w-full bg-[#20B2AA] hover:bg-[#189a93] text-white rounded-full"
+                    >
+                      View Bio
+                    </Button>
+                  </div>
                 </div>
+                
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-black">{member.name}</h3>
-                  <p className="text-[#20B2AA] font-medium mb-4 uppercase tracking-wide text-sm">{member.role}</p>
-                  <p className="text-gray-600 text-sm line-clamp-4">{member.bio}</p>
+                  <h3 className="text-2xl font-bold mb-2 text-black group-hover:text-[#20B2AA] transition-colors duration-200">
+                    {member.name}
+                  </h3>
+                  <p className="text-[#20B2AA] font-medium mb-4 uppercase tracking-wide text-sm">
+                    {member.role}
+                  </p>
+                  
+                  <p className={`text-gray-600 text-sm leading-relaxed transition-all duration-300 ${
+                    selectedMember === member.id ? 'line-clamp-none' : 'line-clamp-3'
+                  }`}>
+                    {member.bio}
+                  </p>
+                  
+                  {member.bio.length > 150 && (
+                    <button 
+                      className="text-[#20B2AA] text-sm font-medium mt-2 hover:underline"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedMember(selectedMember === member.id ? null : member.id);
+                      }}
+                    >
+                      {selectedMember === member.id ? 'Show Less' : 'Read More'}
+                    </button>
+                  )}
                 </div>
+
+                {/* Border Accent */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#20B2AA] to-[#189a93] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
               </div>
             ))}
           </div>
