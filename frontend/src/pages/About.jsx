@@ -114,25 +114,49 @@ const About = () => {
         </div>
       </section>
 
-      {/* Company Story */}
-      <section className="py-24 bg-white">
+      {/* Company Story - Enhanced with Animation */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">Our Story</h2>
+            <div className="slide-in-left">
+              <div className="inline-block mb-4 px-4 py-2 bg-[#20B2AA]/10 rounded-full">
+                <span className="text-[#20B2AA] font-semibold text-sm">Our Foundation</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">A Vision Rooted in Community</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                GN Management is a residential and commercial real estate development and management firm founded by Mr. Onkar Singh in 2010. Mr. Singh sought to invest in improving his Jersey City community through real estate.
+                GN Management is a residential and commercial real estate development and management firm founded by <span className="text-[#20B2AA] font-semibold">Mr. Onkar Singh in 2010</span>. Mr. Singh sought to invest in improving his Jersey City community through real estate.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                He envisioned changing the mechanical experience of the real estate industry along with pushing innovation and design. This vision came to fruition while building a company focused on teamwork and personal development. Today, the team continues to grow while its foundation of empathy, trust, and family remain at its core.
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                He envisioned changing the mechanical experience of the real estate industry along with pushing innovation and design. This vision came to fruition while building a company focused on <span className="text-[#20B2AA] font-semibold">teamwork and personal development</span>. Today, the team continues to grow while its foundation of empathy, trust, and family remain at its core.
               </p>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="text-3xl font-bold text-[#20B2AA] mb-2">2010</div>
+                  <div className="text-sm text-gray-600">Founded</div>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="text-3xl font-bold text-[#20B2AA] mb-2">#31</div>
+                  <div className="text-sm text-gray-600">Inc. 2023 Northeast</div>
+                </div>
+              </div>
             </div>
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1546965860-f981527a0422?crop=entropy&cs=srgb&fm=jpg&q=85"
-                alt="Jersey City Waterfront"
-                className="rounded-3xl shadow-2xl w-full"
-              />
+            
+            <div className="relative slide-in-right">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+                <img
+                  src="https://images.unsplash.com/photo-1546965860-f981527a0422?crop=entropy&cs=srgb&fm=jpg&q=85"
+                  alt="Jersey City Waterfront"
+                  className="w-full transform group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#20B2AA]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              
+              {/* Floating Stats */}
+              <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl p-6 shadow-2xl">
+                <div className="text-2xl font-bold text-black mb-1">1M+ sq ft</div>
+                <div className="text-sm text-gray-600">Portfolio Size</div>
+              </div>
             </div>
           </div>
         </div>
