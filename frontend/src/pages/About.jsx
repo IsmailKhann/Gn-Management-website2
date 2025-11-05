@@ -240,32 +240,69 @@ const About = () => {
         </div>
       </section>
 
-      {/* Milestones Timeline */}
-      <section className="py-24 bg-white">
+      {/* Interactive Timeline */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">Our Journey</h2>
+            <div className="inline-block mb-4 px-4 py-2 bg-[#20B2AA]/10 rounded-full">
+              <span className="text-[#20B2AA] font-semibold text-sm">Our Journey</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black">A Decade of Impact</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A decade of growth, innovation, and community impact.
+              From our founding to becoming a recognized leader in Jersey City development.
             </p>
           </div>
+          
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#20B2AA]" />
-            <div className="space-y-12">
+            {/* Vertical Line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#20B2AA] via-[#189a93] to-[#20B2AA]" />
+            
+            <div className="space-y-8">
               {milestones.map((milestone, index) => (
                 <div
                   key={index}
                   data-testid={`milestone-${index}`}
-                  className="relative pl-20 fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => setActiveYear(activeYear === milestone.year ? null : milestone.year)}
+                  className="relative pl-24 fade-in cursor-pointer group"
+                  style={{ animationDelay: `${index * 0.05}s` }}
                 >
-                  <div className="absolute left-4 w-9 h-9 bg-[#20B2AA] rounded-full flex items-center justify-center text-white font-bold shadow-lg">
-                    <div className="w-4 h-4 bg-white rounded-full" />
+                  {/* Timeline Dot */}
+                  <div className={`absolute left-2.5 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    activeYear === milestone.year 
+                      ? 'bg-[#20B2AA] shadow-xl scale-110' 
+                      : 'bg-white border-4 border-[#20B2AA] group-hover:bg-[#20B2AA]/10'
+                  }`}>
+                    <div className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                      activeYear === milestone.year ? 'bg-white' : 'bg-[#20B2AA]'
+                    }`} />
                   </div>
-                  <div className="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
-                    <div className="text-3xl font-bold text-[#20B2AA] mb-2">{milestone.year}</div>
-                    <h3 className="text-xl font-bold mb-2 text-black">{milestone.title}</h3>
-                    <p className="text-gray-600">{milestone.description}</p>
+                  
+                  {/* Content Card */}
+                  <div className={`bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ${
+                    activeYear === milestone.year 
+                      ? 'ring-2 ring-[#20B2AA] shadow-2xl scale-105' 
+                      : 'hover:shadow-xl hover:-translate-y-1'
+                  }`}>
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="text-3xl font-bold text-[#20B2AA]">{milestone.year}</div>
+                      <div className="h-px flex-1 bg-gradient-to-r from-[#20B2AA]/50 to-transparent" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 text-black group-hover:text-[#20B2AA] transition-colors duration-200">
+                      {milestone.title}
+                    </h3>
+                    <p className={`text-gray-600 leading-relaxed transition-all duration-300 ${
+                      activeYear === milestone.year ? 'text-base' : 'text-sm'
+                    }`}>
+                      {milestone.description}
+                    </p>
+                    
+                    {/* Expand Indicator */}
+                    {activeYear !== milestone.year && (
+                      <div className="mt-3 text-[#20B2AA] text-sm font-medium flex items-center gap-2">
+                        Click to expand
+                        <ChevronDown className="h-4 w-4" />
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
