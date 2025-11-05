@@ -144,7 +144,7 @@ const Home = () => {
                 >
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
-                      src={project.image_url || 'https://images.unsplash.com/photo-1692651762918-5c96f87c5448?crop=entropy&cs=srgb&fm=jpg&q=85'}
+                      src={project.image_url || 'https://images.unsplash.com/photo-1645510807290-cc82de2749f2?crop=entropy&cs=srgb&fm=jpg&q=85'}
                       alt={project.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
