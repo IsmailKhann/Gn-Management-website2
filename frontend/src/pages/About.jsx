@@ -67,16 +67,50 @@ const About = () => {
 
   return (
     <div className="about-page">
-      {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
+      {/* Hero Section - Enhanced */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1565577191414-da98f3c4abac?crop=entropy&cs=srgb&fm=jpg&q=85)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
         </div>
-        <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 animate-in">About GN Management</h1>
-          <p className="text-lg sm:text-xl max-w-3xl text-gray-300 animate-in" style={{ animationDelay: '0.2s' }}>
+        
+        <div className="relative max-w-6xl mx-auto px-6 text-center">
+          <div className="inline-block mb-6 px-6 py-2 bg-[#20B2AA]/20 backdrop-blur-md border border-[#20B2AA]/30 rounded-full animate-in">
+            <span className="text-[#20B2AA] font-medium">Since 2010</span>
+          </div>
+          
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 animate-in" style={{ animationDelay: '0.1s' }}>
+            Building Communities,<br />Creating Legacies
+          </h1>
+          
+          <p className="text-lg sm:text-xl max-w-3xl mx-auto text-gray-300 mb-12 animate-in" style={{ animationDelay: '0.2s' }}>
             GN Management Inc is a real estate advisor that provides real estate and natural resources portfolio management and consulting services to sophisticated institutional investors.
           </p>
+
+          {/* Animated Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 animate-in" style={{ animationDelay: '0.3s' }}>
+            {[
+              { value: counters.projects, label: 'Projects', suffix: '+', icon: Award },
+              { value: counters.team, label: 'Team Members', suffix: '+', icon: Users },
+              { value: counters.units, label: 'Units', suffix: '+', icon: TrendingUp },
+              { value: counters.years, label: 'Years', suffix: '+', icon: Heart },
+            ].map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={index} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+                  <Icon className="h-8 w-8 text-[#20B2AA] mx-auto mb-3" />
+                  <div className="text-4xl font-bold text-white mb-1">
+                    {stat.value}{stat.suffix}
+                  </div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="animate-bounce">
+            <ChevronDown className="h-8 w-8 text-[#20B2AA] mx-auto" />
+          </div>
         </div>
       </section>
 
