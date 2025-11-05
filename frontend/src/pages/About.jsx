@@ -63,7 +63,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1542811029-dd22535dfad1?crop=entropy&cs=srgb&fm=jpg&q=85"
+                src="https://images.unsplash.com/photo-1685458454456-e6e3356dea8b?crop=entropy&cs=srgb&fm=jpg&q=85"
                 alt="Jersey City Skyline"
                 className="rounded-3xl shadow-2xl w-full"
               />
