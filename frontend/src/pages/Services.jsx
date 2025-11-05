@@ -1,44 +1,90 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Home, Building } from 'lucide-react';
+import { TrendingUp, Home, Building, CheckCircle2, ArrowRight, Users, Award, Target, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 const Services = () => {
+  const [activeService, setActiveService] = useState(0);
+  const [counters, setCounters] = useState({ projects: 0, units: 0, sqft: 0, years: 0 });
+
+  useEffect(() => {
+    const targets = { projects: 50, units: 267, sqft: 1000000, years: 10 };
+    const duration = 2000;
+    const steps = 60;
+    const increment = duration / steps;
+
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      setCounters({
+        projects: Math.floor(targets.projects * progress),
+        units: Math.floor(targets.units * progress),
+        sqft: Math.floor(targets.sqft * progress),
+        years: Math.floor(targets.years * progress),
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCounters(targets);
+      }
+    }, increment);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const services = [
     {
       icon: TrendingUp,
       title: 'Investment',
+      tagline: 'Strategic partnerships for high-yield returns',
       description: 'Access high-yield urban real estate projects in one of the most dynamic markets in the U.S. — Jersey City.',
       features: [
-        'Strong Track Record: Dozens of successful projects',
-        'Market Access: Early entry into emerging corridors',
-        'Integrated Execution: Full development oversight',
-        'Recurring Returns: Capital appreciation + cash flow',
-        'Transparency: Detailed updates and analysis',
+        { title: 'Strong Track Record', desc: 'Dozens of successful projects', icon: Award },
+        { title: 'Market Access', desc: 'Early entry into emerging corridors', icon: Target },
+        { title: 'Integrated Execution', desc: 'Full development oversight', icon: Shield },
+        { title: 'Recurring Returns', desc: 'Capital appreciation + cash flow', icon: TrendingUp },
+        { title: 'Transparency', desc: 'Detailed updates and analysis', icon: CheckCircle2 },
       ],
+      image: 'https://images.unsplash.com/photo-1740904259901-2063800012ab?crop=entropy&cs=srgb&fm=jpg&q=85',
+      color: 'from-emerald-500 to-teal-600',
     },
     {
       icon: Home,
       title: 'Rental',
+      tagline: 'Premium living spaces with exceptional service',
       description: 'Luxury and boutique rental properties with full in-house management — from construction to tenant services.',
       features: [
-        '267+ Units across 18 properties',
-        'Prime locations in core Jersey City neighborhoods',
-        'End-to-end in-house expertise',
-        'Tenant-centric leasing and service',
-        'Reliable maintenance team',
+        { title: '267+ Units', desc: 'Across 18 prime properties', icon: Building },
+        { title: 'Prime Locations', desc: 'Core Jersey City neighborhoods', icon: Target },
+        { title: 'In-House Expertise', desc: 'End-to-end management', icon: Users },
+        { title: 'Tenant-Centric', desc: 'Responsive leasing & service', icon: CheckCircle2 },
+        { title: 'Reliable Team', desc: 'Dedicated maintenance staff', icon: Shield },
       ],
+      image: 'https://images.unsplash.com/photo-1745429523617-0d837856ca35?crop=entropy&cs=srgb&fm=jpg&q=85',
+      color: 'from-blue-500 to-cyan-600',
     },
     {
       icon: Building,
       title: 'Construction',
+      tagline: 'Excellence in every detail, from ground to rooftop',
       description: 'Full-spectrum construction management from pre-construction planning through closeout with rigorous quality control.',
       features: [
-        'End-to-end project execution',
-        'Pre-construction & value engineering',
-        'Vetted subcontractor network',
-        'On-site supervision & quality control',
-        'Real-time progress tracking',
+        { title: 'Project Execution', desc: 'End-to-end delivery', icon: Building },
+        { title: 'Value Engineering', desc: 'Pre-construction optimization', icon: Target },
+        { title: 'Vetted Network', desc: 'Top-tier subcontractors', icon: Users },
+        { title: 'Quality Control', desc: 'On-site supervision', icon: Shield },
+        { title: 'Progress Tracking', desc: 'Real-time reporting', icon: CheckCircle2 },
       ],
+      image: 'https://images.unsplash.com/photo-1740904257914-45adcd97040a?crop=entropy&cs=srgb&fm=jpg&q=85',
+      color: 'from-orange-500 to-amber-600',
     },
   ];
 
