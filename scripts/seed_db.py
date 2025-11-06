@@ -135,6 +135,9 @@ async def seed_database():
     print(f"   - {len(projects)} projects")
     print(f"   - {len(team)} team members")
     print(f"   - {len(news)} news articles")
+    print("\n📸 Team photos updated:")
+    for member in team:
+        print(f"   - {member['name']}: {member['role']}")
     
     client.close()
 
