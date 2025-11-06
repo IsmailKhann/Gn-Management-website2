@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Building2, Users, Calendar, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LeadCaptureModal from '@/components/LeadCaptureModal';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -10,6 +11,9 @@ const API = `${BACKEND_URL}/api`;
 const Home = () => {
   const [featuredProjects, setFeaturedProjects] = useState([]);
   const [scrollY, setScrollY] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalInterest, setModalInterest] = useState('');
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
