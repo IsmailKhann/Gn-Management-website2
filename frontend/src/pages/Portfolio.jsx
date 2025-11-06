@@ -192,6 +192,17 @@ const Portfolio = () => {
           )}
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedProject(null);
+        }}
+        title={modalTitle}
+        defaultInterest={modalInterest}
+      />
     </div>
   );
 };
