@@ -332,12 +332,18 @@ const About = () => {
             <div className="space-y-20">
               {milestones.map((milestone, index) => {
                 const isEven = index % 2 === 0;
+                const isVisible = visibleMilestones.has(String(index));
                 return (
                   <div
                     key={index}
                     data-testid={`milestone-${index}`}
-                    className={`relative grid lg:grid-cols-2 gap-8 items-center ${
+                    data-milestone-index={index}
+                    className={`relative grid lg:grid-cols-2 gap-8 items-center transition-all duration-700 ${
                       isEven ? '' : 'lg:direction-rtl'
+                    } ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-10'
                     }`}
                   >
                     {/* Timeline Dot - Center */}
