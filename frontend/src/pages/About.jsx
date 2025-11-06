@@ -58,7 +58,7 @@ const About = () => {
       year: '2015', 
       title: 'Company Created', 
       description: 'GN Management Formed',
-      image: null
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200'
     },
     { 
       year: '2016', 
@@ -76,13 +76,13 @@ const About = () => {
       year: '2020', 
       title: 'Internal company growth', 
       description: 'Reached organization strength of 30+ employees',
-      image: 'https://images.unsplash.com/photo-1576267423048-15c0040fec78?crop=entropy&cs=srgb&fm=jpg&q=85&w=800'
+      image: 'https://images.unsplash.com/photo-1576267423048-15c0040fec78?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200'
     },
     { 
       year: '2020', 
       title: 'Continued Project Growth', 
       description: 'Achieved the milestone of 50 projects',
-      image: 'https://images.unsplash.com/photo-1623054339243-0228ef032ae6?crop=entropy&cs=srgb&fm=jpg&q=85&w=800'
+      image: 'https://images.unsplash.com/photo-1623054339243-0228ef032ae6?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200'
     },
     { 
       year: '2021', 
@@ -106,7 +106,7 @@ const About = () => {
       year: '2025', 
       title: 'Singh Tower Completed', 
       description: 'Completed our flagship high-rise project, Singh Tower, proudly rising and shining at 628 Summit Avenue',
-      image: null
+      image: 'https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/6na3d9t3_2025.jpeg'
     },
   ];
 
