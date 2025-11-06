@@ -59,7 +59,7 @@ async def seed_database():
     
     await db.projects.insert_many(projects)
     
-    # Seed Team Members
+    # Seed Team Members (using highest quality images)
     team = [
         {
             "id": "onkar-singh",
