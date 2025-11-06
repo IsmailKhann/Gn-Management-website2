@@ -140,21 +140,37 @@ const Portfolio = () => {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProjects.map((project, index) => (
-                <Link
-                  to={`/portfolio/${project.id}`}
+                <div
                   key={project.id}
                   data-testid={`project-card-${index}`}
+                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer scale-in relative"
+                  style={{ animationDelay: `${index * 0.05}s` }}
                 >
-                  <div
-                    className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer scale-in"
-                    style={{ animationDelay: `${index * 0.05}s` }}
-                  >
-                    <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+                  <Link to={`/portfolio/${project.id}`}>
+                    <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
                       <img
                         src={project.image_url || 'https://images.unsplash.com/photo-1645510807290-cc82de2749f2?crop=entropy&cs=srgb&fm=jpg&q=85'}
                         alt={project.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
+                      
+                      {/* Hover Overlay with Buttons */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 px-4 gap-3">
+                        <Button
+                          onClick={(e) => handleBookVisit(project, e)}
+                          className="bg-white text-[#20B2AA] hover:bg-[#20B2AA] hover:text-white px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100"
+                        >
+                          <Calendar className="h-4 w-4 mr-2" />
+                          Book a Site Visit
+                        </Button>
+                        <Button
+                          onClick={(e) => handleEnquire(project, e)}
+                          className="bg-[#20B2AA] text-white hover:bg-[#189a93] px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-150"
+                        >
+                          <Mail className="h-4 w-4 mr-2" />
+                          Enquire Now
+                        </Button>
+                      </div>
                     </div>
                     <div className="p-6">
                       <div className="inline-block px-3 py-1 bg-[#20B2AA]/10 text-[#20B2AA] text-xs font-medium rounded-full mb-3">
@@ -169,8 +185,8 @@ const Portfolio = () => {
                         {project.year && <span>• {project.year}</span>}
                       </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               ))}
             </div>
           )}
