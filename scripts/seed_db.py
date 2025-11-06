@@ -63,31 +63,31 @@ async def seed_database():
     team = [
         {
             "id": "onkar-singh",
-            "name": "Onkar Singh",
+            "name": "Mr. Onkar Singh",
             "role": "Founder & CEO",
             "bio": "GN Management is a real estate development firm founded by Mr. Onkar Singh in 2010. Mr. Singh sought to invest in improving his Jersey City community through real estate. He envisioned changing the mechanical experience of the industry while pushing innovation and design. Known for his kind heart and unwavering belief in lifting others, Onkar Singh has become a source of hope for countless women, students, and professionals. As a father of two young daughters, his mission is deeply personal: to build a world where women are valued, respected, and free to succeed.",
-            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/jugj3avt_Mr.%20Onkar%20Singh.jpg"
+            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/20etbzdl_Mr.%20Onkar%20Singh.jpg"
         },
         {
             "id": "harleen-kaur",
-            "name": "Harleen Kaur",
+            "name": "Ms. Harleen Kaur",
             "role": "Managing Director",
             "bio": "As Managing Director, Harleen Kaur brings strategic vision and operational excellence to GN Management. Her leadership drives the company's continued growth and success in the Jersey City real estate market.",
-            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/ot85dgo9_Ms.%20Harleen.jpg"
+            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/fx7eitxu_Ms.%20Harleen.jpg"
         },
         {
             "id": "arvinder-singh",
-            "name": "Arvinder Singh",
+            "name": "Mr. Arvinder Singh",
             "role": "President",
             "bio": "Arvinder Singh serves as President of GN Management, overseeing daily operations and ensuring the highest standards of quality and service across all developments.",
-            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/4u0rjzib_Mr.%20Arvinder.jpeg"
+            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/4mxxdhb2_Mr.%20Arvinder.jpeg"
         },
         {
             "id": "anthony",
-            "name": "Anthony",
+            "name": "Mr. Anthony",
             "role": "Vice President",
             "bio": "Anthony plays a key role in GN Management's operations as Vice President, contributing to strategic initiatives and ensuring excellence in project execution and client relationships.",
-            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/7cv94nmm_Mr.%20Anthony.jpeg"
+            "image_url": "https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/0e3z05oj_Mr.%20Anthony.jpeg"
         }
     ]
     
