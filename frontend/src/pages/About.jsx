@@ -288,10 +288,10 @@ const About = () => {
         </div>
       </section>
 
-      {/* Interactive Timeline */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-16">
+      {/* Redesigned Timeline with Scroll Animations */}
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
             <div className="inline-block mb-4 px-4 py-2 bg-[#20B2AA]/10 rounded-full">
               <span className="text-[#20B2AA] font-semibold text-sm">Our Journey</span>
             </div>
@@ -303,78 +303,61 @@ const About = () => {
           
           <div className="relative">
             {/* Vertical Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#20B2AA] via-[#189a93] to-[#20B2AA]" />
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#20B2AA] via-[#189a93] to-[#20B2AA] -translate-x-1/2" />
             
-            <div className="space-y-8">
-              {milestones.map((milestone, index) => (
-                <div
-                  key={index}
-                  data-testid={`milestone-${index}`}
-                  onClick={() => setActiveYear(activeYear === milestone.year ? null : milestone.year)}
-                  className="relative pl-24 fade-in cursor-pointer group"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  {/* Timeline Dot */}
-                  <div className={`absolute left-2.5 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    activeYear === milestone.year 
-                      ? 'bg-[#20B2AA] shadow-xl scale-110' 
-                      : 'bg-white border-4 border-[#20B2AA] group-hover:bg-[#20B2AA]/10'
-                  }`}>
-                    <div className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                      activeYear === milestone.year ? 'bg-white' : 'bg-[#20B2AA]'
-                    }`} />
-                  </div>
-                  
-                  {/* Content Card */}
-                  <div className={`bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ${
-                    activeYear === milestone.year 
-                      ? 'ring-2 ring-[#20B2AA] shadow-2xl scale-105' 
-                      : 'hover:shadow-xl hover:-translate-y-1'
-                  }`}>
-                    {/* Image Section */}
-                    {milestone.image && (
-                      <div className="relative h-48 overflow-hidden bg-gray-100">
+            <div className="space-y-20">
+              {milestones.map((milestone, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div
+                    key={index}
+                    data-testid={`milestone-${index}`}
+                    className={`relative grid lg:grid-cols-2 gap-8 items-center ${
+                      isEven ? '' : 'lg:direction-rtl'
+                    }`}
+                  >
+                    {/* Timeline Dot - Center */}
+                    <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-[#20B2AA] to-[#189a93] items-center justify-center shadow-2xl z-10 border-4 border-white">
+                      <div className="text-white font-bold text-sm">{milestone.year}</div>
+                    </div>
+                    
+                    {/* Content Side */}
+                    <div className={`${isEven ? 'lg:text-right lg:pr-16' : 'lg:pl-16 lg:col-start-2'}`}>
+                      <div className="inline-block lg:block">
+                        <div className="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                          <div className="lg:hidden mb-4 inline-block bg-[#20B2AA] text-white px-4 py-2 rounded-full font-bold text-lg">
+                            {milestone.year}
+                          </div>
+                          <h3 className="text-2xl font-bold mb-3 text-black group-hover:text-[#20B2AA] transition-colors duration-300">
+                            {milestone.title}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed">
+                            {milestone.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Image Side */}
+                    <div className={`${isEven ? 'lg:pl-16' : 'lg:pr-16 lg:col-start-1 lg:row-start-1'}`}>
+                      <div className="relative rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
                         <img
                           src={milestone.image}
                           alt={milestone.title}
-                          loading="eager"
+                          loading="lazy"
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                        <div className="absolute top-4 left-4 bg-[#20B2AA] text-white px-4 py-2 rounded-full font-bold text-xl shadow-lg">
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#20B2AA]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        
+                        {/* Floating Year Badge on Image */}
+                        <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-[#20B2AA] px-6 py-3 rounded-2xl font-bold text-2xl shadow-xl">
                           {milestone.year}
                         </div>
                       </div>
-                    )}
-                    
-                    <div className="p-6">
-                      {!milestone.image && (
-                        <div className="flex items-center gap-4 mb-3">
-                          <div className="text-3xl font-bold text-[#20B2AA]">{milestone.year}</div>
-                          <div className="h-px flex-1 bg-gradient-to-r from-[#20B2AA]/50 to-transparent" />
-                        </div>
-                      )}
-                      
-                      <h3 className="text-xl font-bold mb-2 text-black group-hover:text-[#20B2AA] transition-colors duration-200">
-                        {milestone.title}
-                      </h3>
-                      <p className={`text-gray-600 leading-relaxed transition-all duration-300 ${
-                        activeYear === milestone.year ? 'text-base' : 'text-sm'
-                      }`}>
-                        {milestone.description}
-                      </p>
-                      
-                      {/* Expand Indicator */}
-                      {activeYear !== milestone.year && milestone.description.length > 100 && (
-                        <div className="mt-3 text-[#20B2AA] text-sm font-medium flex items-center gap-2">
-                          Click to expand
-                          <ChevronDown className="h-4 w-4" />
-                        </div>
-                      )}
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
