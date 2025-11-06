@@ -382,7 +382,7 @@ const About = () => {
                           : `opacity-0 ${isEven ? '-translate-x-10' : 'translate-x-10'}`
                       }`}
                     >
-                      <div className="relative rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
+                      <div className="relative rounded-3xl overflow-hidden shadow-2xl group h-[450px]">
                         <img
                           src={milestone.image}
                           alt={milestone.title}
