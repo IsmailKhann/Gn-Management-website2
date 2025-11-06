@@ -54,15 +54,60 @@ const About = () => {
   };
 
   const milestones = [
-    { year: '2015', title: 'Company Created', description: 'GN Management Formed' },
-    { year: '2016', title: 'Jersey City Residential Project', description: 'First Residential Project Complete' },
-    { year: '2019', title: '3224 Kennedy Blvd.', description: 'First multi-family rental project, Nanak Niwas, at 3224 Kennedy Blvd. Completed' },
-    { year: '2020', title: 'Internal company growth', description: 'Reached organization strength of 30+ employees' },
-    { year: '2020', title: 'Continued Project Growth', description: 'Achieved the milestone of 50 projects' },
-    { year: '2021', title: '161 Van Wagenen Avenue', description: 'Started construction of our premium high-rise project at 161 Van Wagenen Avenue' },
-    { year: '2022', title: 'Started construction of project Singh Tower', description: 'Started construction of our flagship high-rise project, Singh Tower, at 628 Summit Avenue' },
-    { year: '2024', title: '161 Van Wagenen Completed', description: 'Our premium high-rise project at 161 Van Wagenen Avenue was completed and inaugurated by Mayor Steven Fulluck' },
-    { year: '2025', title: 'Singh Tower Completed', description: 'Completed our flagship high-rise project, Singh Tower, proudly rising and shining at 628 Summit Avenue' },
+    { 
+      year: '2015', 
+      title: 'Company Created', 
+      description: 'GN Management Formed',
+      image: null
+    },
+    { 
+      year: '2016', 
+      title: 'Jersey City Residential Project', 
+      description: 'First Residential Project Complete',
+      image: 'https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/sv09982v_2016.jpg'
+    },
+    { 
+      year: '2019', 
+      title: '3224 Kennedy Blvd.', 
+      description: 'First multi-family rental project, Nanak Niwas, at 3224 Kennedy Blvd. Completed',
+      image: 'https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/39wnpvus_2019.jpg'
+    },
+    { 
+      year: '2020', 
+      title: 'Internal company growth', 
+      description: 'Reached organization strength of 30+ employees',
+      image: 'https://images.unsplash.com/photo-1576267423048-15c0040fec78?crop=entropy&cs=srgb&fm=jpg&q=85&w=800'
+    },
+    { 
+      year: '2020', 
+      title: 'Continued Project Growth', 
+      description: 'Achieved the milestone of 50 projects',
+      image: 'https://images.unsplash.com/photo-1623054339243-0228ef032ae6?crop=entropy&cs=srgb&fm=jpg&q=85&w=800'
+    },
+    { 
+      year: '2021', 
+      title: '161 Van Wagenen Avenue', 
+      description: 'Started construction of our premium high-rise project at 161 Van Wagenen Avenue',
+      image: 'https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/yabekh0k_2021.jpg'
+    },
+    { 
+      year: '2022', 
+      title: 'Started construction of project Singh Tower', 
+      description: 'Started construction of our flagship high-rise project, Singh Tower, at 628 Summit Avenue',
+      image: 'https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/d69iteex_2022.jpg'
+    },
+    { 
+      year: '2024', 
+      title: '161 Van Wagenen Completed', 
+      description: 'Our premium high-rise project at 161 Van Wagenen Avenue was completed and inaugurated by Mayor Steven Fulluck',
+      image: 'https://customer-assets.emergentagent.com/job_jersey-estates/artifacts/rjc88je1_2024.png'
+    },
+    { 
+      year: '2025', 
+      title: 'Singh Tower Completed', 
+      description: 'Completed our flagship high-rise project, Singh Tower, proudly rising and shining at 628 Summit Avenue',
+      image: null
+    },
   ];
 
   return (
