@@ -326,31 +326,52 @@ const About = () => {
                   </div>
                   
                   {/* Content Card */}
-                  <div className={`bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 ${
+                  <div className={`bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ${
                     activeYear === milestone.year 
                       ? 'ring-2 ring-[#20B2AA] shadow-2xl scale-105' 
                       : 'hover:shadow-xl hover:-translate-y-1'
                   }`}>
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="text-3xl font-bold text-[#20B2AA]">{milestone.year}</div>
-                      <div className="h-px flex-1 bg-gradient-to-r from-[#20B2AA]/50 to-transparent" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 text-black group-hover:text-[#20B2AA] transition-colors duration-200">
-                      {milestone.title}
-                    </h3>
-                    <p className={`text-gray-600 leading-relaxed transition-all duration-300 ${
-                      activeYear === milestone.year ? 'text-base' : 'text-sm'
-                    }`}>
-                      {milestone.description}
-                    </p>
-                    
-                    {/* Expand Indicator */}
-                    {activeYear !== milestone.year && (
-                      <div className="mt-3 text-[#20B2AA] text-sm font-medium flex items-center gap-2">
-                        Click to expand
-                        <ChevronDown className="h-4 w-4" />
+                    {/* Image Section */}
+                    {milestone.image && (
+                      <div className="relative h-48 overflow-hidden bg-gray-100">
+                        <img
+                          src={milestone.image}
+                          alt={milestone.title}
+                          loading="eager"
+                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                        <div className="absolute top-4 left-4 bg-[#20B2AA] text-white px-4 py-2 rounded-full font-bold text-xl shadow-lg">
+                          {milestone.year}
+                        </div>
                       </div>
                     )}
+                    
+                    <div className="p-6">
+                      {!milestone.image && (
+                        <div className="flex items-center gap-4 mb-3">
+                          <div className="text-3xl font-bold text-[#20B2AA]">{milestone.year}</div>
+                          <div className="h-px flex-1 bg-gradient-to-r from-[#20B2AA]/50 to-transparent" />
+                        </div>
+                      )}
+                      
+                      <h3 className="text-xl font-bold mb-2 text-black group-hover:text-[#20B2AA] transition-colors duration-200">
+                        {milestone.title}
+                      </h3>
+                      <p className={`text-gray-600 leading-relaxed transition-all duration-300 ${
+                        activeYear === milestone.year ? 'text-base' : 'text-sm'
+                      }`}>
+                        {milestone.description}
+                      </p>
+                      
+                      {/* Expand Indicator */}
+                      {activeYear !== milestone.year && milestone.description.length > 100 && (
+                        <div className="mt-3 text-[#20B2AA] text-sm font-medium flex items-center gap-2">
+                          Click to expand
+                          <ChevronDown className="h-4 w-4" />
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
