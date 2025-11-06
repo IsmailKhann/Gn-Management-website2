@@ -351,16 +351,19 @@ const Services = () => {
                 Whether you're an investor, prospective tenant, or seeking construction services, let's discuss how we can work together.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
-                  <Button
-                    data-testid="contact-services-btn"
-                    size="lg"
-                    className="bg-white hover:bg-gray-100 text-[#20B2AA] px-10 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200 shadow-lg"
-                  >
-                    Get in Touch
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+                <Button
+                  data-testid="contact-services-btn"
+                  size="lg"
+                  onClick={() => {
+                    setModalTitle('Get in Touch');
+                    setModalInterest('');
+                    setIsModalOpen(true);
+                  }}
+                  className="bg-white hover:bg-gray-100 text-[#20B2AA] px-10 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200 shadow-lg"
+                >
+                  Get in Touch
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
                 <Link to="/portfolio">
                   <Button
                     size="lg"
@@ -375,6 +378,14 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={modalTitle}
+        defaultInterest={modalInterest}
+      />
     </div>
   );
 };
