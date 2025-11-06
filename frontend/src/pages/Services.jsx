@@ -218,15 +218,18 @@ const Services = () => {
                 </Accordion>
 
                 <div className="mt-8">
-                  <Link to="/contact">
-                    <Button
-                      size="lg"
-                      className="bg-[#20B2AA] hover:bg-[#189a93] text-white rounded-full px-8 py-6 hover:-translate-y-1 transition-all duration-200"
-                    >
-                      Request Information
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
+                  <Button
+                    size="lg"
+                    onClick={() => {
+                      setModalTitle(`Request Information - ${services[activeService].title}`);
+                      setModalInterest('Investor');
+                      setIsModalOpen(true);
+                    }}
+                    className="bg-[#20B2AA] hover:bg-[#189a93] text-white rounded-full px-8 py-6 hover:-translate-y-1 transition-all duration-200"
+                  >
+                    Request Information
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
                 </div>
               </div>
             </div>
