@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, User, Mail, Phone, Building2, MessageSquare, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -33,6 +33,7 @@ const LeadCaptureModal = ({ isOpen, onClose, title, defaultInterest }) => {
     message: '',
   });
   const [submitting, setSubmitting] = useState(false);
+  const [focusedField, setFocusedField] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,7 +49,7 @@ const LeadCaptureModal = ({ isOpen, onClose, title, defaultInterest }) => {
 
     try {
       await axios.post(`${API}/contact`, formData);
-      toast.success('Thank you! We will be in touch shortly.');
+      toast.success('🎉 Thank you! We will be in touch shortly.');
       setFormData({
         name: '',
         email: '',
