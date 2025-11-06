@@ -79,16 +79,19 @@ const Home = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center animate-in"
             style={{ animationDelay: '0.5s' }}
           >
-            <Link to="/contact">
-              <Button
-                data-testid="speak-advisor-btn"
-                size="lg"
-                className="bg-[#20B2AA] hover:bg-[#189a93] text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
-              >
-                Speak with an Investment Advisor
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <Button
+              data-testid="speak-advisor-btn"
+              size="lg"
+              onClick={() => {
+                setModalTitle('Speak with an Investment Advisor');
+                setModalInterest('Investor');
+                setIsModalOpen(true);
+              }}
+              className="bg-[#20B2AA] hover:bg-[#189a93] text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+            >
+              Speak with an Investment Advisor
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
             <Link to="/portfolio">
               <Button
                 data-testid="view-portfolio-btn"
