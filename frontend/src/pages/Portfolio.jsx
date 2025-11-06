@@ -77,9 +77,32 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
+      {/* Search & Filter Section */}
       <section className="py-12 bg-white sticky top-0 z-40 shadow-md">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 space-y-6">
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search by property name or location..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-12 h-14 text-base rounded-full border-2 focus:border-[#20B2AA] shadow-sm"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Category Filters */}
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <Button
@@ -97,6 +120,13 @@ const Portfolio = () => {
               </Button>
             ))}
           </div>
+
+          {/* Results Count */}
+          {searchQuery && (
+            <div className="text-center text-sm text-gray-600">
+              Found {filteredProjects.length} {filteredProjects.length === 1 ? 'property' : 'properties'}
+            </div>
+          )}
         </div>
       </section>
 
