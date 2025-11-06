@@ -33,10 +33,37 @@ const Portfolio = () => {
 
   const categories = ['All', 'Featured', 'Upcoming', 'Under Construction', 'Completed', 'Affordable Housing'];
 
-  const filteredProjects =
+  // Filter by category
+  let filteredProjects =
     activeFilter === 'All'
       ? projects
       : projects.filter((p) => p.category === activeFilter);
+
+  // Filter by search query
+  if (searchQuery) {
+    filteredProjects = filteredProjects.filter((p) =>
+      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.address.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
+
+  const handleBookVisit = (project, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSelectedProject(project);
+    setModalTitle(`Book a Site Visit - ${project.name}`);
+    setModalInterest('Tenant');
+    setIsModalOpen(true);
+  };
+
+  const handleEnquire = (project, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSelectedProject(project);
+    setModalTitle(`Enquire Now - ${project.name}`);
+    setModalInterest('Investor');
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="portfolio-page">
