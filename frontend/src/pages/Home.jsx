@@ -254,18 +254,29 @@ const Home = () => {
           <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
             Whether you're an investor, prospective tenant, or partner, we'd love to hear from you.
           </p>
-          <Link to="/contact">
-            <Button
-              data-testid="get-in-touch-btn"
-              size="lg"
-              className="bg-black hover:bg-gray-800 text-white px-10 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200"
-            >
-              Get in Touch
-              <ChevronRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
+          <Button
+            data-testid="get-in-touch-btn"
+            size="lg"
+            onClick={() => {
+              setModalTitle('Get in Touch');
+              setModalInterest('');
+              setIsModalOpen(true);
+            }}
+            className="bg-black hover:bg-gray-800 text-white px-10 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200"
+          >
+            Get in Touch
+            <ChevronRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </section>
+
+      {/* Lead Capture Modal */}
+      <LeadCaptureModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={modalTitle}
+        defaultInterest={modalInterest}
+      />
     </div>
   );
 };
