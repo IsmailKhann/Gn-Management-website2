@@ -11,11 +11,35 @@ const About = () => {
   const [selectedMember, setSelectedMember] = useState(null);
   const [activeYear, setActiveYear] = useState(null);
   const [counters, setCounters] = useState({ projects: 0, team: 0, units: 0, years: 0 });
+  const [visibleMilestones, setVisibleMilestones] = useState(new Set());
 
   useEffect(() => {
     fetchTeam();
     animateCounters();
+    setupScrollAnimations();
   }, []);
+
+  const setupScrollAnimations = () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = entry.target.getAttribute('data-milestone-index');
+            setVisibleMilestones((prev) => new Set([...prev, index]));
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    setTimeout(() => {
+      document.querySelectorAll('[data-milestone-index]').forEach((el) => {
+        observer.observe(el);
+      });
+    }, 100);
+
+    return () => observer.disconnect();
+  };
 
   const fetchTeam = async () => {
     try {
