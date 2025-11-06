@@ -352,7 +352,13 @@ const About = () => {
                     </div>
                     
                     {/* Content Side */}
-                    <div className={`${isEven ? 'lg:text-right lg:pr-16' : 'lg:pl-16 lg:col-start-2'}`}>
+                    <div 
+                      className={`${isEven ? 'lg:text-right lg:pr-16' : 'lg:pl-16 lg:col-start-2'} transition-all duration-700 delay-200 ${
+                        isVisible 
+                          ? 'opacity-100 translate-x-0' 
+                          : `opacity-0 ${isEven ? 'translate-x-10' : '-translate-x-10'}`
+                      }`}
+                    >
                       <div className="inline-block lg:block">
                         <div className="bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
                           <div className="lg:hidden mb-4 inline-block bg-[#20B2AA] text-white px-4 py-2 rounded-full font-bold text-lg">
@@ -369,7 +375,13 @@ const About = () => {
                     </div>
                     
                     {/* Image Side */}
-                    <div className={`${isEven ? 'lg:pl-16' : 'lg:pr-16 lg:col-start-1 lg:row-start-1'}`}>
+                    <div 
+                      className={`${isEven ? 'lg:pl-16' : 'lg:pr-16 lg:col-start-1 lg:row-start-1'} transition-all duration-700 delay-100 ${
+                        isVisible 
+                          ? 'opacity-100 translate-x-0' 
+                          : `opacity-0 ${isEven ? '-translate-x-10' : 'translate-x-10'}`
+                      }`}
+                    >
                       <div className="relative rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
                         <img
                           src={milestone.image}
