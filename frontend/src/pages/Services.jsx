@@ -8,10 +8,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import LeadCaptureModal from '@/components/LeadCaptureModal';
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
   const [counters, setCounters] = useState({ projects: 0, units: 0, sqft: 0, years: 0 });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalInterest, setModalInterest] = useState('');
 
   useEffect(() => {
     const targets = { projects: 50, units: 267, sqft: 1000000, years: 10 };
