@@ -190,7 +190,10 @@ const About = () => {
                   <img
                     src={member.image_url || 'https://images.unsplash.com/photo-1629507208649-70919ca33793?crop=entropy&cs=srgb&fm=jpg&q=85'}
                     alt={member.name}
+                    loading="eager"
+                    fetchpriority="high"
                     className="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-700"
+                    style={{ imageRendering: '-webkit-optimize-contrast' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
