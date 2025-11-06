@@ -201,16 +201,19 @@ const Home = () => {
                 ))}
               </ul>
               <div className="mt-10">
-                <Link to="/services">
-                  <Button
-                    data-testid="learn-investment-btn"
-                    size="lg"
-                    className="bg-[#20B2AA] hover:bg-[#189a93] text-white px-8 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200"
-                  >
-                    Learn More About Investment
-                    <ChevronRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+                <Button
+                  data-testid="learn-investment-btn"
+                  size="lg"
+                  onClick={() => {
+                    setModalTitle('Learn More About Investment');
+                    setModalInterest('Investor');
+                    setIsModalOpen(true);
+                  }}
+                  className="bg-[#20B2AA] hover:bg-[#189a93] text-white px-8 py-6 text-lg rounded-full hover:-translate-y-1 transition-all duration-200"
+                >
+                  Learn More About Investment
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
               </div>
             </div>
             <div className="slide-in-right">
