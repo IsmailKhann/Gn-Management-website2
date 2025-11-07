@@ -14,6 +14,7 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [modalInterest, setModalInterest] = useState('');
+  const videoRef = useState(null)[0];
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
