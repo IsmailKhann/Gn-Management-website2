@@ -60,17 +60,20 @@ const Home = () => {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
+            crossOrigin="anonymous"
             className="absolute w-full h-full object-cover"
             style={{ 
               filter: 'brightness(0.8) contrast(1.1) saturate(1.1)',
               objectFit: 'cover',
               imageRendering: 'high-quality'
             }}
+            onError={(e) => console.error('Video error:', e)}
+            onLoadedData={() => console.log('Video loaded successfully')}
           >
             {/* Custom uploaded video - Building with circular camera movement (served locally) */}
             <source 
-              src="/hero-video.mp4" 
+              src={`${process.env.PUBLIC_URL}/hero-video.mp4`}
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
