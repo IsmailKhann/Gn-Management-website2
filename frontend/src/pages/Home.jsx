@@ -26,6 +26,33 @@ const Home = () => {
     fetchFeaturedProjects();
   }, []);
 
+  // Handle video playback after component mounts
+  useEffect(() => {
+    const video = document.querySelector('#hero-video');
+    if (video) {
+      // Attempt to play video after a short delay
+      const playVideo = async () => {
+        try {
+          await video.play();
+          console.log('Video playing successfully');
+        } catch (error) {
+          console.log('Autoplay blocked, video will play on user interaction');
+        }
+      };
+      
+      setTimeout(playVideo, 500);
+      
+      // Also try to play on first user interaction
+      const handleInteraction = () => {
+        video.play().catch(() => {});
+        document.removeEventListener('click', handleInteraction);
+      };
+      document.addEventListener('click', handleInteraction);
+      
+      return () => document.removeEventListener('click', handleInteraction);
+    }
+  }, []);
+
   const fetchFeaturedProjects = async () => {
     try {
       const response = await axios.get(`${API}/projects?category=Featured`);
