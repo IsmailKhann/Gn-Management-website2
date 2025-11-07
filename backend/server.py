@@ -180,3 +180,6 @@ logger = logging.getLogger(__name__)
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
+
+# Mount static files directory for serving video
+app.mount("/static", StaticFiles(directory="static"), name="static")
