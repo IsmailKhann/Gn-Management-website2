@@ -181,5 +181,19 @@ logger = logging.getLogger(__name__)
 async def shutdown_db_client():
     client.close()
 
-# Mount static files directory for serving video under /api prefix
-api_router.mount("/static", StaticFiles(directory="static"), name="static")
+# Serve video file directly
+from fastapi.responses import FileResponse
+
+@api_router.get("/video/hero")
+async def get_hero_video():
+    video_path = ROOT_DIR / "static" / "hero-video.mp4"
+    if not video_path.exists():
+        raise HTTPException(status_code=404, detail="Video not found")
+    return FileResponse(
+        video_path,
+        media_type="video/mp4",
+        headers={
+            "Accept-Ranges": "bytes",
+            "Cache-Control": "public, max-age=31536000"
+        }
+    )
