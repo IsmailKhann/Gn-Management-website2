@@ -51,17 +51,35 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Hero Section with Parallax */}
+      {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            transform: `translateY(${scrollY * 0.4}px)`,
-          }}
-        />
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute w-full h-full object-cover"
+            style={{ 
+              filter: 'brightness(0.7)',
+              objectFit: 'cover'
+            }}
+          >
+            <source 
+              src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4" 
+              type="video/mp4" 
+            />
+            {/* Fallback image if video doesn't load */}
+            <img 
+              src="https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920" 
+              alt="Building"
+              className="w-full h-full object-cover"
+            />
+          </video>
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+        </div>
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
           <h1
             className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 animate-in"
