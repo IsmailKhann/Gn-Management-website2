@@ -60,29 +60,14 @@ const Home = () => {
             loop
             muted
             playsInline
-            preload="metadata"
-            crossOrigin="anonymous"
+            preload="auto"
             className="absolute w-full h-full object-cover"
             style={{ 
               filter: 'brightness(0.8) contrast(1.1) saturate(1.1)',
-              objectFit: 'cover',
-              imageRendering: 'high-quality'
+              objectFit: 'cover'
             }}
-            onError={(e) => console.error('Video error:', e)}
-            onLoadedData={() => console.log('Video loaded successfully')}
-          >
-            {/* Custom uploaded video - Building with circular camera movement (served locally) */}
-            <source 
-              src={`${process.env.PUBLIC_URL}/hero-video.mp4`}
-              type="video/mp4" 
-            />
-            {/* Fallback image if video doesn't load */}
-            <img 
-              src="https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920" 
-              alt="Modern Urban Buildings"
-              className="w-full h-full object-cover"
-            />
-          </video>
+            src="/hero-video.mp4"
+          />
           {/* Slightly lighter overlay for better building visibility while maintaining text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/50" />
         </div>
