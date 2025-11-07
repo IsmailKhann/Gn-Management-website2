@@ -62,13 +62,13 @@ const Home = () => {
             playsInline
             className="absolute w-full h-full object-cover"
             style={{ 
-              filter: 'brightness(0.65)',
+              filter: 'brightness(0.75)',
               objectFit: 'cover'
             }}
           >
-            {/* Urban apartment complex with clear building details */}
+            {/* Modern city buildings with drone aerial movement */}
             <source 
-              src="https://videos.pexels.com/video-files/2818546/2818546-uhd_2560_1440_30fps.mp4" 
+              src="https://videos.pexels.com/video-files/2611489/2611489-uhd_2560_1440_25fps.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
@@ -78,8 +78,8 @@ const Home = () => {
               className="w-full h-full object-cover"
             />
           </video>
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+          {/* Slightly lighter overlay for better building visibility while maintaining text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/50" />
         </div>
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
           <h1
