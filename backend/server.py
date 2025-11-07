@@ -181,5 +181,5 @@ logger = logging.getLogger(__name__)
 async def shutdown_db_client():
     client.close()
 
-# Mount static files directory for serving video
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Mount static files directory for serving video under /api prefix
+api_router.mount("/static", StaticFiles(directory="static"), name="static")
