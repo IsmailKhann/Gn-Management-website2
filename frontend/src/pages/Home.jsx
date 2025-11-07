@@ -100,12 +100,12 @@ const Home = () => {
             preload="auto"
             className="absolute w-full h-full object-cover"
             style={{ 
-              filter: 'brightness(0.8) contrast(1.1) saturate(1.1)',
+              filter: 'brightness(0.7) contrast(1.15) saturate(1.05)',
               objectFit: 'cover'
             }}
-            src="/hero-video.mp4"
-            poster="https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920"
-          />
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
           {/* Slightly lighter overlay for better building visibility while maintaining text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/50" />
         </div>
