@@ -66,9 +66,9 @@ const Home = () => {
               objectFit: 'cover'
             }}
           >
-            {/* Residential apartment buildings - urban development */}
+            {/* Modern skyscraper and urban cityscape */}
             <source 
-              src="https://videos.pexels.com/video-files/2611250/2611250-uhd_2560_1440_25fps.mp4" 
+              src="https://videos.pexels.com/video-files/3196635/3196635-uhd_2560_1440_25fps.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
