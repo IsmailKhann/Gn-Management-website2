@@ -58,7 +58,7 @@ const webpackConfig = {
             '**/build/**',
             '**/dist/**',
             '**/coverage/**',
-            '**/public/**',
+            // Removed '**/public/**' to allow video files to be served properly
           ],
         };
       }
