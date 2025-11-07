@@ -68,9 +68,9 @@ const Home = () => {
               imageRendering: 'high-quality'
             }}
           >
-            {/* Custom uploaded video - Building with circular camera movement */}
+            {/* Custom uploaded video - Building with circular camera movement (served locally) */}
             <source 
-              src="https://customer-assets.emergentagent.com/job_gnm-corporate/artifacts/1v1pxvi5_istockphoto-2168590037-640_adpp_is.mp4" 
+              src="/hero-video.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
