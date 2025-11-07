@@ -67,7 +67,7 @@ const Home = () => {
             }}
           >
             <source 
-              src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4" 
+              src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
