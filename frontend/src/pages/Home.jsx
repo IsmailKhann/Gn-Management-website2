@@ -62,13 +62,20 @@ const Home = () => {
             playsInline
             className="absolute w-full h-full object-cover"
             style={{ 
-              filter: 'brightness(0.6)',
+              filter: 'brightness(0.55)',
               objectFit: 'cover'
             }}
           >
-            {/* City skyline with modern buildings - drone aerial footage */}
+            {/* 
+              Modern high-rise apartment building drone footage
+              Alternative video URLs you can try:
+              - https://videos.pexels.com/video-files/4825173/4825173-uhd_2560_1440_24fps.mp4 (High-rise building exterior)
+              - https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_25fps.mp4 (City architecture)
+              - https://videos.pexels.com/video-files/2792046/2792046-uhd_2560_1440_30fps.mp4 (Urban skyline)
+              - https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4 (Modern glass building)
+            */}
             <source 
-              src="https://videos.pexels.com/video-files/2792046/2792046-uhd_2560_1440_30fps.mp4" 
+              src="https://videos.pexels.com/video-files/4825173/4825173-uhd_2560_1440_24fps.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
