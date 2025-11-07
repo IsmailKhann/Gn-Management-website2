@@ -62,19 +62,19 @@ const Home = () => {
             playsInline
             className="absolute w-full h-full object-cover"
             style={{ 
-              filter: 'brightness(0.65)',
+              filter: 'brightness(0.6)',
               objectFit: 'cover'
             }}
           >
-            {/* Modern apartment/office building drone footage */}
+            {/* City skyline with modern buildings - drone aerial footage */}
             <source 
-              src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_25fps.mp4" 
+              src="https://videos.pexels.com/video-files/2792046/2792046-uhd_2560_1440_30fps.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
             <img 
               src="https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920" 
-              alt="Modern Urban Building"
+              alt="Modern Urban Buildings"
               className="w-full h-full object-cover"
             />
           </video>
