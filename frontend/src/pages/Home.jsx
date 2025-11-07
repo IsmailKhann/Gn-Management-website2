@@ -84,7 +84,7 @@ const Home = () => {
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
-            autoPlay
+            id="hero-video"
             loop
             muted
             playsInline
@@ -95,6 +95,7 @@ const Home = () => {
               objectFit: 'cover'
             }}
             src="/hero-video.mp4"
+            poster="https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920"
           />
           {/* Slightly lighter overlay for better building visibility while maintaining text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/50" />
