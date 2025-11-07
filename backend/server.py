@@ -178,13 +178,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
-
-# Serve video file directly
-from fastapi.responses import FileResponse
-
 @api_router.get("/video/hero")
 async def get_hero_video():
     video_path = ROOT_DIR / "static" / "hero-video.mp4"
@@ -198,3 +191,7 @@ async def get_hero_video():
             "Cache-Control": "public, max-age=31536000"
         }
     )
+
+@app.on_event("shutdown")
+async def shutdown_db_client():
+    client.close()
