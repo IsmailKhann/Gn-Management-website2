@@ -66,19 +66,15 @@ const Home = () => {
               objectFit: 'cover'
             }}
           >
-            {/* Multiple sources for better compatibility - modern urban buildings */}
+            {/* Modern apartment/office building drone footage */}
             <source 
-              src="https://videos.pexels.com/video-files/2611250/2611250-uhd_2560_1440_25fps.mp4" 
-              type="video/mp4" 
-            />
-            <source 
-              src="https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_30fps.mp4" 
+              src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_25fps.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
             <img 
               src="https://images.unsplash.com/photo-1564597625335-20ac06202464?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920" 
-              alt="Modern Building"
+              alt="Modern Urban Building"
               className="w-full h-full object-cover"
             />
           </video>
