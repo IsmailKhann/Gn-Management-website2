@@ -1,14 +1,14 @@
 import asyncio
 import sys
 import os
-sys.path.append('/app/backend')
+# sys.path.append('/app/backend')
 
 from motor.motor_asyncio import AsyncIOMotorClient
-from dotenv import load_dotenv
-from pathlib import Path
+# from dotenv import load_dotenv
+# from pathlib import Path
 
-ROOT_DIR = Path('/app/backend')
-load_dotenv(ROOT_DIR / '.env')
+# ROOT_DIR = Path('/app/backend')
+# load_dotenv(ROOT_DIR / '.env')
 
 mongo_url = os.environ['MONGO_URL']
 db_name = os.environ['DB_NAME']
