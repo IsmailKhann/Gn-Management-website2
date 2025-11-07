@@ -106,8 +106,9 @@ const Home = () => {
           >
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
-          {/* Slightly lighter overlay for better building visibility while maintaining text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/50" />
+          {/* Overlay with teal tint to blend with website theme and ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#0B1220]/45 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#20B2AA]/5 via-transparent to-[#20B2AA]/5" />
         </div>
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
           <h1
