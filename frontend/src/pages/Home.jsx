@@ -60,44 +60,17 @@ const Home = () => {
             loop
             muted
             playsInline
+            preload="auto"
             className="absolute w-full h-full object-cover"
             style={{ 
-              filter: 'brightness(0.75)',
-              objectFit: 'cover'
+              filter: 'brightness(0.8) contrast(1.1) saturate(1.1)',
+              objectFit: 'cover',
+              imageRendering: 'high-quality'
             }}
           >
-            {/* 
-              HERO VIDEO OPTIONS - Urban Buildings with Circular/Revolving Camera Movement
-              Replace the src below with any of these options:
-              
-              CURRENT: Modern city with circular drone movement
-              ✅ https://videos.pexels.com/video-files/2611489/2611489-uhd_2560_1440_25fps.mp4
-              
-              Option 1: High-rise apartments with orbital movement
-              https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4
-              
-              Option 2: Glass office buildings - circular pan
-              https://videos.pexels.com/video-files/3196635/3196635-uhd_2560_1440_25fps.mp4
-              
-              Option 3: Modern residential complex
-              https://videos.pexels.com/video-files/2818546/2818546-uhd_2560_1440_30fps.mp4
-              
-              Option 4: City skyline with revolving drone shot
-              https://videos.pexels.com/video-files/2792046/2792046-uhd_2560_1440_30fps.mp4
-              
-              Option 5: Urban development - apartment buildings
-              https://videos.pexels.com/video-files/4825173/4825173-uhd_2560_1440_24fps.mp4
-              
-              Option 6: Metropolitan architecture
-              https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_25fps.mp4
-              
-              For New Jersey/Jersey City specific footage:
-              - Visit: https://www.vecteezy.com/free-videos/jersey-city
-              - Or search Pexels directly: https://www.pexels.com/search/videos/jersey%20city%20drone/
-              - Download your preferred video and update the src URL below
-            */}
+            {/* Custom uploaded video - Building with circular camera movement */}
             <source 
-              src="https://videos.pexels.com/video-files/2611489/2611489-uhd_2560_1440_25fps.mp4" 
+              src="https://customer-assets.emergentagent.com/job_gnm-corporate/artifacts/1v1pxvi5_istockphoto-2168590037-640_adpp_is.mp4" 
               type="video/mp4" 
             />
             {/* Fallback image if video doesn't load */}
