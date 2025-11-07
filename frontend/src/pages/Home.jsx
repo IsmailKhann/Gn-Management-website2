@@ -33,23 +33,32 @@ const Home = () => {
       // Attempt to play video after a short delay
       const playVideo = async () => {
         try {
+          video.muted = true; // Ensure muted for autoplay
           await video.play();
           console.log('Video playing successfully');
         } catch (error) {
-          console.log('Autoplay blocked, video will play on user interaction');
+          console.log('Autoplay blocked, retrying on user interaction');
+          // Retry on any user interaction
+          const handleInteraction = async () => {
+            try {
+              video.muted = true;
+              await video.play();
+              console.log('Video started after user interaction');
+            } catch (e) {
+              console.error('Failed to play video:', e);
+            }
+            document.removeEventListener('click', handleInteraction);
+            document.removeEventListener('touchstart', handleInteraction);
+            document.removeEventListener('scroll', handleInteraction);
+          };
+          document.addEventListener('click', handleInteraction, { once: true });
+          document.addEventListener('touchstart', handleInteraction, { once: true });
+          document.addEventListener('scroll', handleInteraction, { once: true });
         }
       };
       
-      setTimeout(playVideo, 500);
-      
-      // Also try to play on first user interaction
-      const handleInteraction = () => {
-        video.play().catch(() => {});
-        document.removeEventListener('click', handleInteraction);
-      };
-      document.addEventListener('click', handleInteraction);
-      
-      return () => document.removeEventListener('click', handleInteraction);
+      // Try playing after a brief delay
+      setTimeout(playVideo, 100);
     }
   }, []);
 
