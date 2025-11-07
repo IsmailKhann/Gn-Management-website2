@@ -193,20 +193,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-@api_router.get("/video/hero")
-async def get_hero_video():
-    video_path = ROOT_DIR / "static" / "hero-video.mp4"
-    if not video_path.exists():
-        raise HTTPException(status_code=404, detail="Video not found")
-    return FileResponse(
-        video_path,
-        media_type="video/mp4",
-        headers={
-            "Accept-Ranges": "bytes",
-            "Cache-Control": "public, max-age=31536000"
-        }
-    )
-
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
